@@ -1,13 +1,17 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage[top=0cm, left=1.25cm, right=1.25cm, bottom=0cm]{geometry}
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{multirow}
 \usepackage{array}
-\usepackage{inconsolata}
-\renewcommand*\familydefault{\ttdefault}
-\usepackage[T1]{fontenc}
+%\usepackage{fontspec}
+%\setmainfont{Adobe Garamond Pro}
+%\usepackage{inconsolata}
+%\usepackage{garamond}
+%\usepackage[T1]{fontenc}
+\renewcommand*{\ttdefault}{inconsolata}
+\renewcommand{\sfdefault}{Corbel}
 
 \hypersetup{
     colorlinks,
@@ -41,21 +45,17 @@
             %CDC
             September & \multirow{2}{*}{-} & \multirow{2}{*}{present} & \multirow{2}{*}{\textbf{ORISE Fellow}, \textit{Centers for Disease Control and Prevention}}\\
             2014 & & &\\
-            & & & $\bullet$ Automated the retrieval of data from surveys using computer vision\\
-            & & & \hspace*{4mm}and machine learning algorithms in C++\\
-            & & & $\bullet$ Used web scraping techniques using Python and MongoDB in order to\\
-            & & & \hspace*{4mm}automate the quality control of data deliveries to the team\\
-            & & & $\bullet$ Provided high quality data visualizations to aide in the analysis\\
-            & & & \hspace*{4mm}of data\\
-            & & & $\bullet$ Participated in routine data management and analysis\\
-            & & & $\bullet$ Maintained, secured, and configured computers running Linux\\
+            & & & $\bullet$ Automated the retrieval of data from surveys using computer vision and machine\\
+            & & & \hspace*{4mm}learning algorithms in \texttt{C++}\\
+            & & & $\bullet$ Used web scraping techniques using \texttt{Python} and \texttt{MongoDB} to automate the quality\\
+            & & & \hspace*{4mm}control of data deliveries to the team\\
+            & & & $\bullet$ Provided high quality data visualizations to aide in the analysis of data\\
             %NACCHO
             October & \multirow{2}{*}{-} & August & \multirow{2}{*}{\textbf{Intern}, \textit{National Association of County and City Health Officials}}\\
             2013 & & 2014 &\\
             & & & $\bullet$ Created reports and tools for the analysis of surveys in R\\
             & & & $\bullet$ Conducted an extensive longitudinal data analysis using R\\
-            & & & $\bullet$ Used data visualization tools in Python to create geovisualizations\\
-            & & & \hspace*{4mm}for reports\\
+            & & & $\bullet$ Used data visualization tools in Python to create geovisualizations for reports\\
             %ASTHO
             December & \multirow{2}{*}{-} & April & \multirow{2}{*}{\textbf{Intern}, \textit{Association of State and Territorial Health Officials}}\\
             2014 & & 2014 &\\
@@ -73,6 +73,32 @@
             \\
             %BS
             2007 & - & 2012 & \textbf{Bachelor of Science in Community Health} \textit{George Mason University}\\
+            %SKILLZ
+            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            %& & & \large{\textbf{TECHNICAL SKILLS \& OPEN SOURCE CONTRIBUTIONS}}\\
+            & & & \large{\textbf{Software}}\\
+            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            \multicolumn{3}{c}{2015} & \textbf{bfork}\\
+            & & & $\bullet$ Author of \texttt{bfork}, \texttt{https://cran.r-project.org/web/packages/bfork}, an \texttt{R} package\\
+            & & & \hspace*{4mm}for basic \texttt{Unix} process control. The package allows \texttt{R} users to quickly fork and manage\\
+            & & & \hspace*{4mm}child processes.\\
+            \\
+            \multicolumn{3}{c}{2015} & \textbf{LibreOffice}\\
+            & & & $\bullet$ Submitted over 40 accepted patches to the LibreOffice core\\
+            \\
+            \multicolumn{3}{c}{\textbf{Languages}} & \textbf{\texttt{C/C++, Python, R, Scala, NoSQL, Bash, \LaTeX}}\\
+            %Presentations
+            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            & & & \large{\textbf{CONFERENCE \& POSTER PRESENTATIONS}}\\
+            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            \multicolumn{3}{c}{\multirow{3}{*}{September 22, 2015}} & Daniel L. Robertson, Jin-Mann S. Lin. Application of computer vision and machine\\
+            & & & learning to public health data validation. CDC/ATSDR Statistics Day.\\
+            & & & Atlanta, GA\\
+            \\
+            \multicolumn{3}{c}{\multirow{4}{*}{August 26, 2015}} & Daniel L. Robertson, Kathryn H. Jacobsen, Heibatollah Baghi. Hunter-killed deer\\
+            & & & as a predictor of notifiable disease rates for Lyme disease and Babesiosis\\
+            & & & in New Jersey Counties, 1997 to 2013. International Conference on Emerging\\
+            & & & Infectious Diseases. Atlanta, GA\\
             %Honors
             & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
             & & & \large{\textbf{HONORS}}\\
@@ -82,14 +108,6 @@
             \multicolumn{3}{c}{2014} & \textbf{Phi Kappa Phi Honors Society}\\
             \\
             \multicolumn{3}{c}{2014} & \textbf{GMU Graduate Service and Leadership Award}\\
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{TECHNICAL SKILLS \& OPEN SOURCE CONTRIBUTIONS}}\\
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            \multicolumn{3}{c}{2015} & \textbf{LibreOffice - Contributing Developer}\\
-            & & & $\bullet$ Removed depreciated features from the template library through the\\
-            & & & \hspace*{4mm}submission of patches\\
-            \\
-            \multicolumn{3}{c}{\textbf{Languages}} & \textbf{C++, Scala, R, Python, NoSQL, Bash, \LaTeX}\\
         \end{tabular}
     \end{table}
 \end{document}
