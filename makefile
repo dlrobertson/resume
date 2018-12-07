@@ -6,3 +6,6 @@ all: $(OUTPUT)
 
 %.pdf: src/%.tex
 	pdflatex $<
+
+clean:
+	rm $(OUTPUT)
