@@ -5,13 +5,13 @@
 \usepackage{hyperref}
 \usepackage{multirow}
 \usepackage{array}
+\usepackage{colortbl}
 
 \hypersetup{
-    colorlinks,
-    linkcolor={red!50!black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
+    colorlinks=false,
+    pdfborder={0 0 0},
 }
+
 \pagestyle{empty}
 \title{Daniel L. Robertson}
 \date{June 1, 2015}
@@ -30,14 +30,39 @@
             & \href{https://github.com/dlrobertson}{https://github.com/dlrobertson}\\
         \end{tabular}
         \begin{tabular}{@{\hspace{0mm}}c@{\hspace{1mm}}c@{\hspace{3mm}}cl}
+            \noalign{\global\arrayrulewidth=0.1em}
+            \arrayrulecolor{maroon}
+            % Languages and Skillz
+            \hline\\[-3mm]
+            \multicolumn{4}{l}{\large{\textbf{Languages \& Skills}}}\\
+            \hline\\[-2mm]
+            \multicolumn{3}{c}{} & \textbf{\texttt{Rust; C; C++; ARM, RISC-V, \& x86 Assembly; Python; \LaTeX}}\\\\[-2mm]
+            %Open Source Software
+            \hline\\[-3mm]
+            \multicolumn{4}{l}{\large{\textbf{Open Source Software Highlights}}}\\
+            \hline\\[-2mm]
+            & & & \textbf{\href{https://github.com/dlrobertson/sylkie}{Sylkie}} - Author\\
+            & & & $\bullet$ Tool for IPv6 address spoofing with the Neighbor Discovery Protocol.\\[2mm]
+            & & & \textbf{\href{https://github.com/m-labs/smoltcp}{smoltcp}} - Collaborator\\
+            & & & $\bullet$ Immplemented IPv6 support and assisted in project maintenance.\\[2mm]
+            & & & \textbf{\href{https://gitlab.redox-os.org}{Redox OS}} - Member\\
+            & & & $\bullet$ Network stack maintainer.\\[2mm]
+            & & & \textbf{\href{https://github.com/servo}{Servo}} - Contributor\\
+            & & & $\bullet$ Maintainer of the IPC library.\\
+            & & & $\bullet$ Made various contributions to other components of the servo browser engine.\\[2mm]
+            & & & \textbf{\href{https://github.com/rust-lang}{Rust}} - Contributor\\
+            & & & $\bullet$ Implemented \texttt{VaList} for C \texttt{va\_list} compatibility.\\[2mm]
+            & & & \textbf{\href{https://github.com/LibreOffice}{LibreOffice}} - Contributor\\
+            & & & $\bullet$ Contributions focused on optimizing proceedures, templating, and moving to C++11.\\\\[-2mm]
             %Experience
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{EXPERIENCE}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            \hline\\[-3mm]
+            \multicolumn{4}{l}{\large{\textbf{EXPERIENCE}}}\\
+            \hline\\[-2mm]
             %EI
             May & \multirow{2}{*}{-} & \multirow{2}{*}{present} & \multirow{2}{*}{\textbf{Machine Intelligence Engineer}, \textit{Embedded Intelligence LLC}}\\
             2018 & & &\\
-            & & & $\bullet$ Wrote the data collection pipeline for the Understanding Group Biases project.\\
+            & & & $\bullet$ Architect, build, and maintain a distributed ETL pipeline using Kubernetes,\\
+            & & & \hspace*{4mm}Luigi, Airflow, and Spark.\\
             %Tripwire
             May & \multirow{2}{*}{-} & June & \multirow{2}{*}{\textbf{Software Engineer}, \textit{Tripwire}}\\
             2016 & & 2018 &\\
@@ -56,52 +81,25 @@
             2014 & & 2016 &\\
             & & & $\bullet$ Created a \texttt{C++} library that made use of computer vision and machine learning techniques\\
             & & & \hspace*{4mm}to retrieve handwritten data from surveys\\
-            & & & $\bullet$ Maintained, secured, and configured team computers running \texttt{Linux}\\
-            %Software
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{Open Source Software Highlights}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-        \end{tabular}
-        \begin{tabular}{@{\hspace{0mm}}c@{\hspace{1mm}}c@{\hspace{3mm}}cl}
-            & & & \textbf{Sylkie} - Author\\
-            & & & $\bullet$ Tool for IPv6 address spoofing with the Neighbor Discovery Protocol.\\[2mm]
-            & & & \textbf{smoltcp} - Collaborator\\
-            & & & $\bullet$ Immplemented IPv6 support and assisted in project maintenance.\\[2mm]
-            & & & \textbf{Redox OS} - Member\\
-            & & & $\bullet$ Network stack maintainer.\\[2mm]
-            & & & \textbf{Rust} - Contributor\\
-            & & & $\bullet$ Implemented \texttt{VaList} for C \texttt{va\_list} compatibility.\\[2mm]
-            & & & \textbf{Servo} - Contributor\\
-            & & & $\bullet$ Contributed to various components of the servo browser engine with a focus on work\\
-            & & & \hspace*{4mm}pertaining to the IPC library.\\[2mm]
-            % Languages and Skillz
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{Languages \& Skills}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            \multicolumn{3}{c}{} & \textbf{\texttt{Rust; C; C++; ARM, RISC-V, \& x86 Assembly; Ada; Python; \LaTeX}}\\[-1mm]
+            & & & $\bullet$ Maintained, secured, and configured team computers running \texttt{Linux}\\\\[-2mm]
             %Education
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{EDUCATION}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            \hline\\[-3mm]
+            \multicolumn{4}{l}{\large{\textbf{EDUCATION}}}\\
+            \hline\\[-2mm]
             %MPH
             \multicolumn{3}{c}{2014} & \textbf{Master of Public Health in Epidemiology} \textit{George Mason University}\\[1mm]
             %Cert
             \multicolumn{3}{c}{2014} & \textbf{Graduate Certificate in Biostatistics} \textit{George Mason University}\\[1mm]
             %BS
-            \multicolumn{3}{c}{2012} & \textbf{Bachelor of Science in Community Health} \textit{George Mason University}\\[-1mm]
+            \multicolumn{3}{c}{2012} & \textbf{Bachelor of Science in Community Health} \textit{George Mason University}\\\\[-2mm]
             %Presentations
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{CONFERENCE \& POSTER PRESENTATIONS}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
+            \hline\\[-3mm]
+            \multicolumn{4}{l}{\large{\textbf{HONORS \& CONFERENCE PRESENTATIONS}}}\\
+            \hline\\[-2mm]
             \multicolumn{3}{c}{\multirow{2}{*}{September 22, 2015}} & Daniel L. Robertson, Jin-Mann S. Lin. Application of computer vision and machine\\
-            & & & learning to public health data validation. CDC/ATSDR Statistics Day. Atlanta, GA\\[2mm]
-            %Honors
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            & & & \large{\textbf{HONORS}}\\[-2mm]
-            & & & \color{maroon}{\rule{14cm}{0.75pt}}\\
-            \multicolumn{3}{c}{2014} & \textbf{Delta Omega Honorary Society in Public Health}, \textit{Gamma Tau Chapter}\\[1mm]
-            \multicolumn{3}{c}{2014} & \textbf{Phi Kappa Phi Honors Society}\\[1mm]
-            \multicolumn{3}{c}{2014} & \textbf{GMU Graduate Service and Leadership Award}\\[1mm]
+            & & & learning to public health data validation. CDC/ATSDR Statistics Day. Atlanta, GA\\
+            \multicolumn{3}{c}{2014} & Delta Omega Honorary Society\\
+            \multicolumn{3}{c}{2014} & Phi Kappa Phi Honors Society\\
         \end{tabular}
     \end{table}
 \end{document}
