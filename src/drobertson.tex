@@ -1,102 +1,382 @@
-\documentclass[10pt]{article}
-\usepackage[top=1cm, left=1.25cm, right=1.25cm, bottom=1cm]{geometry}
-\usepackage{color}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{multirow}
-\usepackage{array}
-\usepackage{colortbl}
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+%% TODO(dlrobertson): narrow the dependencies down.
+\usepackage[empty]{fullpage}
+
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+
+\usepackage{multicol}
+\usepackage{bookmark}
+
+% fonts
+\usepackage[T1]{fontenc}
+\usepackage[p,osf,swashQ]{cochineal}
+\usepackage{cabin}
+\usepackage[varqu,varl,scale=0.9]{zi4}
+
+% maybe use this?
+\usepackage[most]{tcolorbox}
+
+% colors
+\usepackage[table]{xcolor}
+\definecolor{base1}{HTML}{93a1a1}
+\definecolor{base03}{HTML}{002b36}
+\definecolor{green}{HTML}{859900}
+\definecolor{blue}{HTML}{268bd2}
+\definecolor{orange}{HTML}{cb4b16}
+\definecolor{red}{HTML}{dc322f}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+\input{glyphtounicode}
+\pdfgentounicode=1
 
 \hypersetup{
-    colorlinks=false,
-    pdfborder={0 0 0},
+  colorlinks=false,
+  pdfborder={0 0 0},
 }
 
-\pagestyle{empty}
-\title{Daniel L. Robertson}
-\date{June 1, 2015}
-\author{Daniel L. Robertson}
+\newcommand{\allTheInfo}[3]{
+  \begin{center}
+    {\Huge\color{red} #1} \hfill {
+      \begin{minipage}{3in}
+        #2
+      \end{minipage}
+    }
+    \vspace{10pt}
+    \begin{tcolorbox}[
+      sharp corners,
+      boxrule=0mm,
+      enhanced,
+      borderline north={1pt}{0pt}{blue},
+      borderline south={1pt}{0pt}{blue},
+      borderline west={0pt}{0pt}{base1!10},
+      borderline east={0pt}{0pt}{base1!10},
+    ]
+      \begin{center}
+        \vspace{2pt}
+        \Large{#3}
+        \vspace{2pt}
+      \end{center}
+    \end{tcolorbox}
+  \end{center}
+}
+
+\newcommand{\makeSkillRow}[3]{
+  {$\Rightarrow$#1} & {$\Rightarrow$#2} & {$\Rightarrow$#3}\\
+}
+
+\newcommand{\makeWorkHistoryTitle}[5]{
+  \begin{tcolorbox}[colback=base1!10,colframe=base1!10,frame hidden]
+    {\color{blue}\textbf{#1}}, \textbf{#2} - #3 \hfill #4\\
+    {\small\textit{#5}}
+  \end{tcolorbox}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{green}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{blue}\titlerule]
+
+\newcommand{\makeFooter}[4]{
+  \fancyfoot[R]{
+    \color{base1}{
+      #1 ~ | ~ #2 ~ | ~ #3 ~ | ~ #4 ~ | ~ $\thepage$ of $2$
+    }
+  }
+}
+
+% I'm not a wizard, so I can't call this a
+% Curriculum Vitae
+\title{Resume}
 
 \begin{document}
-    \normalfont
-    % define the color of the lines
-    \definecolor{maroon}{rgb}{0.34, 0.01, 0.1}
-    % header
-    \begin{table}[ht]
-        \begin{tabular}{p{13cm}r}
-            \multirow{4}{*}{\hspace*{1cm}\color{maroon}{\huge\textbf{Daniel L. Robertson}}} & \\
-            & \href{mailto:dan@dlrobertson.com}{dan@dlrobertson.com}\\
-            & \href{http://dlrobertson.com}{http://dlrobertson.com}\\
-            & \href{https://github.com/dlrobertson}{https://github.com/dlrobertson}\\
-        \end{tabular}
-        \begin{tabular}{@{\hspace{0mm}}c@{\hspace{1mm}}c@{\hspace{3mm}}cl}
-            \noalign{\global\arrayrulewidth=0.1em}
-            \arrayrulecolor{maroon}
-            % Languages and Skillz
-            \hline\\[-3mm]
-            \multicolumn{4}{l}{\large{\textbf{Languages \& Skills}}}\\
-            \hline\\[-2mm]
-            \multicolumn{3}{c}{} & \textbf{\texttt{Rust; C; C++; RISC-V \& x86 Assembly; \LaTeX}}\\\\[-2mm]
-            %Open Source Software
-            \hline\\[-3mm]
-            \multicolumn{4}{l}{\large{\textbf{Open Source Software Highlights}}}\\
-            \hline\\[-2mm]
-            & & & \textbf{\href{https://github.com/torvalds/linux}{Linux}}\\
-            & & & $\bullet$ Authored the BMA400 Accelerometer IIO driver.\\[2mm]
-            & & & \textbf{\href{https://github.com/rust-lang}{Rust}}\\
-            & & & $\bullet$ Implemented support for \texttt{C va\_list} and \texttt{C} variadic functions.\\[2mm]
-            & & & $\bullet$ Fixed several internal compiler errors.\\[2mm]
-            & & & \textbf{\href{https://github.com/smoltcp-rs/smoltcp}{Smoltcp}}\\
-            & & & $\bullet$ Implemented IPv6 support and assisted in project maintenance.\\[2mm]
-            & & & \textbf{\href{https://github.com/mythril-hypervisor/mythril}{Mythril}}\\
-            & & & $\bullet$ Implemented host ACPI table parsing and building guest ACPI tables.\\[2mm]
-            %Experience
-            \hline\\[-3mm]
-            \multicolumn{4}{l}{\large{\textbf{EXPERIENCE}}}\\
-            \hline\\[-2mm]
-            %Mozilla
-            April & \multirow{2}{*}{-} & \multirow{2}{*}{present} & \multirow{2}{*}{\textbf{Senior Software Engineer}, \textit{Mozilla}}\\
-            2022 & & &\\
-            & & & $\bullet$ Implemented, improved, and tested related web standards.\\
-            & & & $\bullet$ Aid in developing the Firefox Asynchronous Panning and Zooming component.\\
-            & & & $\bullet$ Triage bug reports from Firefox users related to scrolling.\\
-            %Star Lab
-            April & \multirow{2}{*}{-} & April & \multirow{2}{*}{\textbf{Member of Technical Staff}, \textit{Star Lab}}\\
-            2019 & & 2022 &\\
-            & & & $\bullet$ Develop and maintain a custom Linux Security Module.\\
-            & & & $\bullet$ Develop and maintain two custom Linux filesystems implemented in the kernel.\\
-            & & & $\bullet$ Develop filesystem command line tools written in Rust.\\
-            & & & $\bullet$ Field incoming bug reports from customers and debug any issues.\\
-            %EI
-            May & \multirow{2}{*}{-} & June & \multirow{2}{*}{\textbf{Machine Intelligence Engineer}, \textit{Embedded Intelligence}}\\
-            2018 & & 2019 &\\
-            %Tripwire
-            May & \multirow{2}{*}{-} & June & \multirow{2}{*}{\textbf{Software Engineer}, \textit{Tripwire}}\\
-            2016 & & 2018 &\\
-            & & & $\bullet$ Wrote libraries and tooling for profiling SMB servers using SMB over TCP.\\
-            & & & $\bullet$ Used standard open source tools to find and fix memory errors.\\
-            %Anidata
-            %2016 & & 2019 &\\
-            %& & & $\bullet$ Taught the Fundamentals of Python bootcamp at the General Assembly.\\
-            %CDC
-            September & \multirow{2}{*}{-} & May & \multirow{2}{*}{\textbf{ORISE Fellow}, \textit{Centers for Disease Control and Prevention}}\\
-            2014 & & 2016 &\\
-            %Education
-            \hline\\[-3mm]
-            \multicolumn{4}{l}{\large{\textbf{EDUCATION}}}\\
-            \hline\\[-2mm]
-            %MPH
-            \multicolumn{3}{c}{2014} & \textbf{Master of Public Health in Epidemiology} \textit{George Mason University}\\[1mm]
-            %Cert
-            \multicolumn{3}{c}{2014} & \textbf{Graduate Certificate in Biostatistics} \textit{George Mason University}\\[1mm]
-            %BS
-            \multicolumn{3}{c}{2012} & \textbf{Bachelor of Science in Community Health} \textit{George Mason University}\\\\[-2mm]
-            %Presentations
-            \hline\\[-3mm]
-            \multicolumn{4}{l}{\large{\textbf{CONFERENCE PRESENTATIONS}}}\\
-            \hline\\[-2mm]
-            \multicolumn{3}{c}{\multirow{2}{*}{September 22, 2015}} & Daniel L. Robertson, Jin-Mann S. Lin. Application of computer vision and machine\\
-            & & & learning to public health data validation. CDC/ATSDR Statistics Day. Atlanta, GA\\
-        \end{tabular}
-    \end{table}
+
+  \allTheInfo{
+    Daniel Robertson
+  }{
+    \href{tel:5714519241}{
+      \raisebox{-0.05\height} \faPhone\ 571-451-9241} ~ | ~
+    \href{mailto:dan@dlrobertson.com}{
+      \raisebox{-0.15\height} \faEnvelope\ dan@dlrobertson.com}\\
+    \href{www.linkedin.com/in/daniellutherrobertson/ }{
+      \raisebox{-0.15\height} \faLinkedin\ @daniellutherrobertson }\\
+    \href{https://github.com/dlrobertson}{
+      \raisebox{-0.15\height} \faGithub\ @dlrobertson} ~ | ~
+    \href{https://dlrobertson.com}{
+      \raisebox{-0.15\height} \faGlobe\ https://dlrobertson.com}
+  }{
+    \color{base03}\textbf{Open-Source Kernel Developer}
+  }
+
+  \textbf{Perseverant and purposeful software engineer} with expertise in Linux kernel
+  development, open-source collaboration, software performance and scalability,
+  cross-team collaboration, and debugging and troubleshooting. Confidently
+  tackle detail-oriented challenges, demystifying and integrating complex
+  issues into broader projects and facilitating team member contribution and
+  collaboration. Customer-focused engineer who stays close to the problem and
+  generates solutions that exceed client expectations.
+  \begin{center}
+    \setlength{\tabcolsep}{1em}
+    \begin{tabular}{ l l l }
+      \makeSkillRow{
+        Linux Kernel Development
+      }{
+        C Programming
+      }{
+        Technical Writing
+      }
+      \makeSkillRow{
+        Open Source Collaboration
+      }{
+        Rust Programming
+      }{
+        Community Engagement
+      }
+      \makeSkillRow{
+        Performance \& Scalability
+      }{
+        Network Protocols (IPv6)
+      }{
+        Cross-Functional Collaboration
+      }
+      \makeSkillRow{
+        Debugging \& Troubleshooting
+      }{
+        Fuzz Testing
+      }{
+        Hypervisor Development
+      }\\
+    \end{tabular}
+  \end{center}
+
+  \section{Open Source Highlights}
+  \begin{center}
+    {\rowcolors{2}{white}{base1!10}
+    \setlength{\tabcolsep}{1em}
+    \begin{tabular}{c!{\color{blue}\vrule}c}
+      \arrayrulecolor{blue}
+      \vspace{1pt}
+      {
+       \begin{tabular}{c}
+         \color{base03}\textbf{Linux Kernel}
+       \end{tabular}
+      } & {
+        \begin{minipage}{5in}
+          \vspace{5pt}
+          \begin{itemize}
+            \item \textbf{Authored and upstreamed the BMA400 Accelerometer IIO
+            driver} to the Linux kernel, enabling users to use the device with
+            either I2C or SPI serial communiation protocols.
+            \item \textbf{Improved system stability and robustness} of
+            \texttt{bcachefs} by identifying and resolving several kernel
+            bugs found during fuzz testing.
+          \end{itemize}
+        \end{minipage}
+      }
+      \\
+      \hline
+      {
+       \begin{tabular}{c}
+         \color{base03}\textbf{Rust Compiler}
+       \end{tabular}
+      } & {
+        \begin{minipage}{5in}
+          \vspace{5pt}
+          \begin{itemize}
+            \item \textbf{Closed critical gap in interoperability with C} by
+            implementing C \texttt{va\_list} and variadic functions, enhancing
+            ability to export C APIs.
+            \item \textbf{Optimized stability and functionality of Rust language}
+            by rectifying several internal compiler errors.
+          \end{itemize}
+        \end{minipage}
+        \vspace{1pt}
+      }
+      \\
+      \hline
+      {
+       \begin{tabular}{c}
+         \color{base03}\textbf{Smoltcp}
+       \end{tabular}
+      } & {
+        \begin{minipage}{5in}
+          \vspace{5pt}
+          \begin{itemize}
+            \item \textbf{Implemented IPv6 support}, refining Redox OS’
+            networking capabilities.
+            \item \textbf{Assisted with project maintenance} and coordinated
+            contributors, fostering collaboration in open-source environment.
+          \end{itemize}
+        \end{minipage}
+        \vspace{1pt}
+      }
+      \\
+      \hline
+      {
+       \begin{tabular}{c}
+         \color{base03}\textbf{Mythril}
+       \end{tabular}
+      } & {
+        \begin{minipage}{5in}
+          \vspace{5pt}
+          \begin{itemize}
+            \item \textbf{Designed host guest ACPI table parsing and building},
+            enabling virtual machines to accurately detect and allocate system
+            resources.
+            \item \textbf{Directed initial development efforts} and delegated
+            smaller tasks, cultivating teamwork among volunteers.
+          \end{itemize}
+        \end{minipage}
+        \vspace{1pt}
+      }
+      \\
+    \end{tabular}}
+  \end{center}
+
+  \section{Work Experience}
+  \makeWorkHistoryTitle
+    {Senior Software Engineer}
+    {MOZILLA}
+    {San Francisco, CA (Remote)}
+    {Apr. 2022–Present}
+    {
+      Non-profit software community promoting exclusively free software and open
+      standards with 40K global active contributors. Best known for Firefox web
+      browser, Thunderbird email client, Bugzilla bug tracking system, Gecko
+      layout engine, and Pocket “read-it-later-online” service.
+    }
+  \textbf{Hired} to maintain the asynchronous panning and zooming (scrolling)
+  component of Firefox web browser after volunteering on several Mozilla
+  open-source projects, including Servo and the Rust Compiler.
+
+  \begin{itemize}
+    \item \textbf{Provided reliable product up-time} by resolving incoming bugs
+    and collaborating remotely with 3 software engineer team members to triage,
+    troubleshoot, and debug issues.
+    \item \textbf{Upheld user functionality} by aligning patches with web
+    specifications and writing C++ code to fine-tune performance and address
+    problems.
+    \item \textbf{Improved web compatibility} across multiple browsers by
+    contributing to web speifications and test frameworks, with a focus on
+    the handling of \texttt{Blob}'s in the \texttt{fetch} specification.
+  \end{itemize}
+
+  \makeWorkHistoryTitle
+    {Member of the Technical Staff}
+    {STAR LAB, A WIND RIVER COMPANY}
+    {Washington, DC}
+    {Apr. 2019–Apr. 2022}
+    {
+      Provider of cybersecurity solutions for protecting Linux-based systems
+      in mission-critical environments.
+    }
+  \textbf{Hired} to maintain custom Linux kernel-based security module and
+  implement 2 file overlay filesystems an authenticated filesystem and an
+  encrypted file system. Allied with 3–4 technical staff members in managing
+  high-security contracts.
+
+  \begin{itemize}
+    \item \textbf{Boosted performance and scalability} of complex
+    implementations overfile systems, guiding customers through the
+    integration process and debugging live systems.
+    \item \textbf{Improved Linux security module performance} by developing
+    kernel framework to evolve from experimental phase to tangible,
+    sellable product.
+  \end{itemize}
+
+  \makeWorkHistoryTitle
+    {Machine Intelligence Engineer}
+    {EMBEDDED INTELLIGENCE}
+    {Washington, DC}
+    {May 2018–Apr. 2019}
+    {
+      Cutting-edge R\&D company enhancing safety and security of
+      A\-enabled systems.
+    }
+  \textbf{Joined} industry contact and friend in supporting DARPA research
+  projects by formulating secure data pipelines and web crawlers to gather
+  large-scale current and historical data from public archives.
+
+  \begin{itemize}
+    \item \textbf{Informed strategic decision\-making in research initiatives}
+    by enhancing accuracy algorithms and designing pipelines that processed
+    large\-scale datasets in partnership with machine learning experts.
+    \item \textbf{Strengthened research proposals} that involved applying
+    machine learning techniques to data collected from network traffic
+    with in\-depth knowledge of network protocols.
+  \end{itemize}
+
+  \makeWorkHistoryTitle
+    {Software Engineer}
+    {TRIPWIRE}
+    {Atlanta, GA}
+    {May 2016–Jun. 2018}
+    {
+      Provider of cybersecurity risk management, helping organizations build
+      security, compliance, and operational efficiency.
+    }
+
+  \textbf{Recruited} as network security product subject matter expert, using
+  protocols to gather device information and evaluate risk of malicious intent
+  and use. Collaborated with 20 software engineers and managers to remotely
+  serve clients.
+
+  \begin{itemize}
+    \item \textbf{Upheld system reliability and minimized downtime for customers}
+    by resolving complex memory issues in network devices using remote debugging
+    techniques and code analysis to identify and fix problems.
+    \item \textbf{Maintained high system performance and customer satisfaction} by
+    providing on-call engineering support to troubleshoot and resolve urgent
+    customer concerns.
+  \end{itemize}
+
+  \makeWorkHistoryTitle
+    {ORISE Fellow}
+    {CENTERS FOR DISEASE CONTROL \& PREVENTION (CDC)}
+    {Atlanta, GA}
+    {Sept. 2014–May 2016}
+    {
+      Provider of cybersecurity risk management, helping organizations build
+      security, compliance, and operational efficiency.
+    }
+  \textbf{Hired} as a new graduate to pair with staff and receive hands\-on
+  research experience.
+
+  \begin{itemize}
+    \item \textbf{Cut data entry time by 50\%} by writing programs to
+    automatically input survey data into forms, eliminating need for
+    double student entry.
+  \end{itemize}
+
+  \section{Education}
+  \begin{tcolorbox}[colback=base1!10,colframe=base1!10,frame hidden]
+    {\color{base03}\textbf{GEORGE MASON UNIVERSITY}} ~ – ~ Fairfax, VA\\
+    \small Master of Public Health in Epidemiology ~ | ~
+    Graduate Certificate in Biostatistics ~ | ~
+    Bachelor of Science in Community Health
+  \end{tcolorbox}
+
+  \makeFooter{Daniel Robertson}{Waynesboro, VA}{571-451-9241}{dan@dlrobertson.com}
 \end{document}
