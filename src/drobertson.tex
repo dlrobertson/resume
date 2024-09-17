@@ -1,6 +1,5 @@
 \documentclass[a4paper,skipsamekey,11pt,english]{curve}
 
-%% TODO(dlrobertson): narrow the dependencies down.
 \usepackage[empty]{fullpage}
 
 \usepackage{titlesec}
@@ -74,9 +73,9 @@
       borderline east={0pt}{0pt}{base1!10},
     ]
       \begin{center}
-        \vspace{2pt}
+        \vspace{-5pt}
         \Large{#3}
-        \vspace{2pt}
+        \vspace{-5pt}
       \end{center}
     \end{tcolorbox}
   \end{center}
@@ -93,12 +92,6 @@
   \end{tcolorbox}
 }
 
-\titleformat{\section}{
-  \vspace{-5pt}
-  \color{green}
-  \raggedright\large\bfseries
-}{}{0em}{}[\color{blue}\titlerule]
-
 \newcommand{\makeFooter}[4]{
   \fancyfoot[R]{
     \color{base1}{
@@ -106,6 +99,29 @@
     }
   }
 }
+
+
+\titleformat
+{\section} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{} % label
+{0em} % sep
+{
+  \vspace{-5pt}
+  \color{green}
+  \raggedright\Large\bfseries
+} % before-code
+[
+  \vspace{-10pt}
+  {
+    % Stollen from the example resume by LianTze Lim (liantze@gmail.com)...
+    % WAY cooler than a simple \hline.
+    \begin{tikzpicture}[baseline]
+      \shade[left color=blue!60!white, right color=white] rectangle (17,2.5pt);
+    \end{tikzpicture}
+  }
+] % after-code
 
 % I'm not a wizard, so I can't call this a
 % Curriculum Vitae
@@ -155,7 +171,7 @@
         Community Engagement
       }
       \makeSkillRow{
-        Performance \& Scalability
+        File System Development
       }{
         Network Protocols (IPv6)
       }{
